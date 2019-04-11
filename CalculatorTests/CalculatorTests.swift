@@ -2,7 +2,7 @@
 //  CalculatorTests.swift
 //  CalculatorTests
 //
-//  Created by Sean Egger on 3/22/19.
+//  Created by Sean Egger and Tony Calarese on 3/22/19.
 //  Copyright © 2019 Sean Egger. All rights reserved.
 //
 
