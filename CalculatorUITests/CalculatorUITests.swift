@@ -2,7 +2,7 @@
 //  CalculatorUITests.swift
 //  CalculatorUITests
 //
-//  Created by Sean Egger on 3/22/19.
+//  Created by Sean Egger and Tony Calarese on 3/22/19.
 //  Copyright © 2019 Sean Egger. All rights reserved.
 //
 
@@ -27,6 +27,26 @@ class CalculatorUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        let app = XCUIApplication()
+        let aVal = app.textFields["aVal"]
+        let bVal = app.textFields["bVal"]
+        let op = app.textFields["op"]
+        let answerField = app.staticTexts["answerLabel"]
+        aVal.tap()
+        aVal.typeText("1")
+        bVal.tap()
+        bVal.typeText("2")
+        op.tap()
+        op.typeText("+")
+        app.buttons["Calculate"].tap()
+        let answer: String = answerField.label
+        XCTAssertEqual(answer, "3.0")
+    }
+    
+    func testAdd() {
+        
+        let app = XCUIApplication()
+        
     }
 
 }

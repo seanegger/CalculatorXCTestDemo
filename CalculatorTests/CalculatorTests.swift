@@ -2,7 +2,7 @@
 //  CalculatorTests.swift
 //  CalculatorTests
 //
-//  Created by Sean Egger on 3/22/19.
+//  Created by Sean Egger and Tony Calarese on 3/22/19.
 //  Copyright © 2019 Sean Egger. All rights reserved.
 //
 
@@ -11,11 +11,9 @@ import XCTest
 
 class CalculatorTests: XCTestCase {
 
-    var calc: MathFunction?
+    var calc: MathFunction = MathFunction()
     
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        calc = MathFunction()
     }
 
     override func tearDown() {
@@ -38,21 +36,47 @@ class CalculatorTests: XCTestCase {
         let valA = 2.5
         let valB = 3.0
         let expectedResult = valA + valB
-        XCTAssertEqual(calc?.add(a: valA, b: valB), expectedResult)
+        XCTAssertEqual(calc.add(a: valA, b: valB), expectedResult)
+    }
+    
+    func testSubtract() {
+        let valA = 2.5
+        let valB = 3.0
+        let expectedResult = valA - valB
+        XCTAssertEqual(calc.subtract(a: valA, b: valB), expectedResult)
+    }
+    
+    func testDivide() {
+        let valA = 2.5
+        let valB = 3.0
+        let expectedResult = valA/valB
+        XCTAssertEqual(calc.divide(a: valA, b: valB), expectedResult)
     }
     
     func testMultiply() {
         let valA = 2.5
         let valB = 3.0
         let expectedResult = valA * valB
-        XCTAssertEqual(calc?.multiply(a: valA, b: valB), expectedResult)
+        XCTAssertEqual(calc.multiply(a: valA, b: valB), expectedResult)
     }
     
     func testPowerOf() {
         let valA = 2.5
         let valB = 3.0
         let expectedResult = 2.5 * 2.5 * 2.5
-        XCTAssertEqual(calc?.powerOf(x: valA, toThe: valB), expectedResult)
+        XCTAssertEqual(calc.powerOf(x: valA, toThe: valB), expectedResult)
     }
-
+    
+    func testCalc() {
+        let valA = 2.5
+        let valB = 3.0
+        var expectedResult = valA + valB
+        XCTAssertEqual(calc.calculate(a: valA, b: valB, sign: +), expectedResult)
+        expectedResult = valA - valB
+        XCTAssertEqual(calc.calculate(a: valA, b: valB, sign: -), expectedResult)
+        expectedResult = valA / valB
+        XCTAssertEqual(calc.calculate(a: valA, b: valB, sign: /), expectedResult)
+        expectedResult = valA * valB
+        XCTAssertEqual(calc.calculate(a: valA, b: valB, sign: *), expectedResult)
+    }
 }

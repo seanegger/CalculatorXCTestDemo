@@ -33,7 +33,10 @@ class MathFunction{
     }
     
     func powerOf(x: Double, toThe: Double) -> Double {
-        // Not Yet Implemented
-        return 0
+        var total = 1.0;
+        for _ in 1...Int(toThe) {
+           total *= x
+        }
+        return total
     }
 }
